@@ -125,7 +125,7 @@ model state {
 }
 
 model user {
-  id            Int             @id
+  id            Int             @id @default(autoincrement())
   mail          String          @db.MediumText
   password      String          @db.MediumText
   name          String          @db.MediumText
