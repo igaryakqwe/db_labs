@@ -52,7 +52,7 @@ const AddDialog: FC<AddButtonProps> = () => {
   return (
     <>
       <div className="w-1/3 self-end pt-3" onClick={openModal}>
-        <button className="rounded-full bg-sky-900 w-10 h-10 hover:bg-sky-800 transition-all hover:rotate-90 transform origin-center grid place-items-center">
+        <button className="rounded-full bg-green-700 w-10 h-10 hover:bg-green-600 transition-all hover:rotate-90 transform origin-center grid place-items-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
           </svg>
