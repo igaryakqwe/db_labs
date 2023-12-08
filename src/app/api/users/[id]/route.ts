@@ -5,19 +5,18 @@ export async function GET(
   request: Request,
   { params } : { params: { id: string }}
 ) {
-  try {
-    const handler = await prisma.user.findUnique({
-      where: {
-        id: +params.id
-      }
-    });
-    return NextResponse.json(handler);
-  } catch (error) {
+  const handler = await prisma.user.findUnique({
+    where: {
+      id: +params.id
+    }
+  });
+  if (handler === null) {
     return NextResponse.json(
       { error: 'User with such id is not exist' },
       { status: 500 }
     );
   }
+  return NextResponse.json(handler);
 }
 
 export async function DELETE (
