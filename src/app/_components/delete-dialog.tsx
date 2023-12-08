@@ -2,7 +2,7 @@
 
 import { FC, Fragment, useState } from 'react';
 import { Dialog, Transition } from "@headlessui/react";
-import { useRouter } from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
 
 interface DeleteDialogProps {
   userId: number;
@@ -10,6 +10,7 @@ interface DeleteDialogProps {
 
 const DeleteDialog: FC<DeleteDialogProps> =({ userId }) => {
   const router = useRouter();
+  const pathname = usePathname();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,7 +27,12 @@ const DeleteDialog: FC<DeleteDialogProps> =({ userId }) => {
       await fetch(`/api/users/${userId}`, {
         method: 'DELETE',
       });
-      router.refresh();
+      if (pathname === `/${userId}`) {
+        router.back();
+        router.refresh();
+      } else {
+        router.refresh();
+      }
     } catch (e) {
       console.error(e)
     }

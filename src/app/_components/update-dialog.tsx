@@ -3,7 +3,7 @@
 import React, { FC, Fragment, useState } from 'react';
 import { User } from "@/types/user";
 import { Dialog, Transition } from "@headlessui/react";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface UpdateDialogProps {
   user: User;
@@ -53,7 +53,7 @@ const UpdateDialog: FC<UpdateDialogProps> = ({ user }) => {
         },
         body: JSON.stringify(updatedUser),
       });
-      router.refresh();
+      router.refresh()
       closeModal();
     } catch (e) {
       console.error(e);
