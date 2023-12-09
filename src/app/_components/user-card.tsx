@@ -20,7 +20,7 @@ const UserCard: FC<UserCardProps> = ({ user }) => {
           <p className="text-gray-600">{user.gender}</p>
         </div>
       </Link>
-      <div className="pl-10">
+      <div className="">
         <UpdateDialog user={user} />
         <DeleteDialog userId={user.id} />
       </div>
